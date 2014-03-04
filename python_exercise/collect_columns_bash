@@ -1,0 +1,54 @@
+#!/bin/bash
+
+##Columns Collector
+##Written by Daniel Yoo - Nov. 2013
+##Input_file: a data file containing information with lots of columns, named "DOS_$path"
+##Ouput_file: a data file containing the columns of interest, named "source_$path"
+##Objective: easily arrange lots of columns that you want to collect, as well as easily calculate the d-band center and width
+
+##Measuring elapsed time set 1
+START=$(date +%s)
+
+##Find the current folder name
+export current=$(pwd)
+path=$(basename $current)
+echo $path
+
+##Collect columns that user wants to collect
+echo "This script is for collecting the certain columns that you are interested in, into new data file"
+echo "Warning: name of input file should be DOS_$path.dat ($path = name of the current folder)"
+echo "Please, enter numbers of columns that you want to collect (eg. 1 4 8...)"
+read CN
+
+##Number of lines in source file
+Nline=$(find ./DOS_"$path".dat |xargs wc -l |awk '{printf ("%d\n",$1)}')
+echo "Number of lines in source file:" $Nline
+
+
+##Start "for" statement for collecting titles
+for b in $CN
+   do
+   column=$(sed -n '1p' < ./DOS_"$path".dat |awk '{printf$'$b'}')
+   echo "Title of $b column: $column"
+   echo -n "$column" " " >>./source_"$path"
+done
+echo " " >>./source_"$path"
+echo "Collecting data in progress"
+
+##Start "for" statement for body columns
+for a in `seq -w 2 1 $Nline`
+do
+   for b in $CN
+   do
+   column=$(sed -n ''$a'p' < ./DOS_"$path".dat |awk '{printf"%10.8f",$'$b'}')
+   echo -n "$column" " " >>./source_"$path"
+   done
+echo " " >>./source_"$path"
+d=$(echo "scale=6; ($a- 1)/ $Nline* 100" |bc)
+echo -ne ""$d"%\r"
+done
+
+##Measuring elapsed time set 2
+END=$(date +%s)
+DIFF=$(echo "$END- $START" | bc)
+echo "Elapsed time" "$DIFF" "sec"

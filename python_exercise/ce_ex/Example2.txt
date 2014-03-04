@@ -1,0 +1,64 @@
+# Python Script: Calculate poisson's ratio from OUTCAR file.
+# Written by Johnny C.E.Kim @ MTG, Yonsei univ.
+def find_poisson(OUTCAR):
+    c11 = ''
+    c12 = ''
+    c44 = ''
+       
+    keyword = 'TOTAL ELASTIC MODULI (kBar)'
+    i = OUTCAR.rfind(keyword)
+    while OUTCAR[i] != '-':
+        i += 1
+    while OUTCAR[i] != 'X':
+        i += 1
+    i += 2
+    while OUTCAR[i] == ' ':
+        i += 1
+    while OUTCAR[i] != ' ':
+        c11 += OUTCAR[i]
+        i += 1
+        
+    while OUTCAR[i] == ' ':
+        i += 1
+    while OUTCAR[i] != ' ':
+        c12 += OUTCAR[i]
+        i += 1
+
+    while OUTCAR[i] != '\n':
+        i += 1
+    i += 1
+    while OUTCAR[i] != '\n':
+        i += 1
+    i += 1
+    while OUTCAR[i] != '\n':
+        i += 1
+    i += 4
+
+    while OUTCAR[i] == ' ':
+        i += 1
+    while OUTCAR[i] != ' ':
+        i += 1
+    while OUTCAR[i] == ' ':
+        i += 1
+    while OUTCAR[i] != ' ':
+        i += 1
+    while OUTCAR[i] == ' ':
+        i += 1
+    while OUTCAR[i] != ' ':
+        i += 1
+    while OUTCAR[i] == ' ':
+        i += 1
+    while OUTCAR[i] != ' ':
+        c44 += OUTCAR[i]
+        i += 1
+    c11 = float(c11)
+    c12 = float(c12)
+    c44 = float(c44)
+    
+    B = ( c11 + 2.0 * c12 ) / 3.0
+    Gv = ( c11 - c12 + 3.0*c44) / 5.0
+    Gr = (5.0*(c11-c12)*c44)/(4.0*c44 + 3.0*(c11-c12))
+    Gh = 0.5*(Gv + Gr)
+    poisson = (3.0*B - 2.0*Gh)/(2.0*(3.0*B + Gh))
+    
+    return str(poisson)

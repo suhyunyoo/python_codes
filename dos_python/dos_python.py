@@ -2,7 +2,7 @@
 
 ###The python code for spliting and summation of density of state for VASP output file
 ###Written by Su-Hyun Yoo
-###Last update: 3 March 2014
+###Last update: 4 March 2014
 ###Needed input: CONTCAR, DOSCAR, OUTCAR
 ###Used library: os, sh_vasp, sh_common, math, mathplotlib.pyplot
 
@@ -30,6 +30,7 @@ FORBITAL = vasp.check_forbital_outcar(ISPIN, LSORBIT)
 
 print "FERMI :", FERMI, "eV // ISPIN =", ISPIN, "// LSORBIT =", LSORBIT, "// FORBITAL =", FORBITAL
 
+print "This job is to split density of states from OUTCAR (VASP environment)."
 ###split_dos
 vasp.split_DOSCAR(vasp.get_number_of_each_atom(), vasp.get_sort_of_atoms(), ISPIN, FORBITAL, LSORBIT)
 

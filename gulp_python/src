@@ -1,0 +1,33 @@
+
+species   6
+Li     core    1.000000                  
+Zn     core    2.000000                  
+Ga     core    3.000000                  
+Ge     core    4.000000                  
+O      core    0.840000                  
+O      shel   -2.840000                  
+buck     
+Li    core O     shel  282.000000     0.330000  0.000000      0.00 15.00
+buck     
+Zn    core O     shel  440.000000     0.370000  0.000000      0.00 15.00
+buck     
+Ga    core O     shel  696.000000     0.360000  0.000000      0.00 15.00
+buck     
+Ge    core O     shel  830.000000     0.360000  0.000000      0.00 15.00
+buck     
+O     shel O     shel  22764.0000     0.115000  32.00000      0.00 15.00
+lennard 12  6     
+Li    core O     shel  50.000000      0.0000000      0.000 15.000
+lennard 12  6     
+Zn    core O     shel  50.000000      0.0000000      0.000 15.000
+lennard 12  6     
+Ga    core O     shel  50.000000      0.0000000      0.000 15.000
+lennard 12  6     
+Ge    core O     shel  50.000000      0.0000000      0.000 15.000
+spring
+O      38.000000    
+accuracy 12.000  4 20
+xtol fit   8.0000
+ftol fit  12.0000
+gtol fit   8.0000
+dump

@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-###transforming cif to vasp format, using ASE.
+###transforming vasp to cif format, using ASE.
 ###Written by Su-Hyun Yoo
 ###Last update: 4 March 2014
-###Needed input: cif file
+###Needed input: vasp file
 ###Used library: sys, ase, ase.io, ase.io.vasp, ase.io.cif
 
 import ase

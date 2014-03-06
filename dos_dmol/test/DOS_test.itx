@@ -1,4 +1,6 @@
-E_dmol_dos TD_dmol_dos  PD_dmol_dos_Br_1_s PD_dmol_dos_Br_1_p PD_dmol_dos_Br_1_d  PD_dmol_dos_Pd_2_s PD_dmol_dos_Pd_2_p PD_dmol_dos_Pd_2_d  PD_dmol_dos_Pd_3_s PD_dmol_dos_Pd_3_p PD_dmol_dos_Pd_3_d  PD_dmol_dos_Pd_4_s PD_dmol_dos_Pd_4_p PD_dmol_dos_Pd_4_d  PD_dmol_dos_Pd_5_s PD_dmol_dos_Pd_5_p PD_dmol_dos_Pd_5_d  
+IGOR
+WAVES/D E_test TD_test  PD_test_Br_1_s PD_test_Br_1_p PD_test_Br_1_d  PD_test_Pd_2_s PD_test_Pd_2_p PD_test_Pd_2_d  PD_test_Pd_3_s PD_test_Pd_3_p PD_test_Pd_3_d  PD_test_Pd_4_s PD_test_Pd_4_p PD_test_Pd_4_d  PD_test_Pd_5_s PD_test_Pd_5_p PD_test_Pd_5_d  
+BEGIN
 -8.677714227    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000
 -8.650502830    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000
 -8.623291434    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000   0.00000    0.00000    0.00000
@@ -500,3 +502,18 @@ E_dmol_dos TD_dmol_dos  PD_dmol_dos_Br_1_s PD_dmol_dos_Br_1_p PD_dmol_dos_Br_1_d
 4.873561047   54.47221  -0.05114    0.39539    2.89723   1.56931    6.03424    1.45167   0.88568    3.39651    1.83763   0.90711    3.12949    1.75579   1.07106    3.38947    1.59385
 4.900772443   54.62643  -0.05168    0.39450    2.70799   1.58636    6.13774    1.45076   0.88967    3.42613    1.85178   0.91791    3.15321    1.77264   1.09684    3.44707    1.60855
 4.927983839   54.85160  -0.05223    0.39526    2.50354   1.59862    6.24712    1.45699   0.89228    3.47684    1.87223   0.92893    3.19656    1.79133   1.11139    3.50146    1.62382
+END
+X Display TD_test vs E_test as "test"
+X ModifyGraph width=340.157,height=340.157
+X ModifyGraph marker=19
+X ModifyGraph lSize=1.5
+X ModifyGraph tick=2
+X ModifyGraph mirror=1
+X ModifyGraph zero(bottom)=8
+X ModifyGraph fSize=20
+X ModifyGraph lblMargin(left)=15,lblMargin(bottom)=10
+X ModifyGraph standoff=0
+X ModifyGraph axThick=1.5
+X ModifyGraph axisOnTop=1
+X Label left "\Z20 Density-of-states (arb. unit)"
+X Label bottom "\Z20 Energy (eV)"
